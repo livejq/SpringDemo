@@ -17,9 +17,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+      <spring.version>4.3.24.RELEASE</spring.version>
   </properties>
 
-  <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+  <!-- https://mvnrepository.com/-->
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -30,39 +31,45 @@
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-test</artifactId>
-          <version>3.2.18.RELEASE</version>
+          <version>${spring.version}</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>antlr</groupId>
+          <artifactId>antlr</artifactId>
+          <version>2.7.7</version>
           <scope>test</scope>
       </dependency>
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
-      <version>3.2.18.RELEASE</version>
+        <version>${spring.version}</version>
     </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-context</artifactId>
-          <version>3.2.18.RELEASE</version>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-expression</artifactId>
-          <version>3.2.18.RELEASE</version>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-jdbc</artifactId>
-          <version>3.2.18.RELEASE</version>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-tx</artifactId>
-          <version>3.2.18.RELEASE</version>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-aop</artifactId>
-          <version>3.2.18.RELEASE</version>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>aopalliance</groupId>
@@ -72,7 +79,7 @@
       <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-aspects</artifactId>
-          <version>3.2.18.RELEASE</version>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>org.aspectj</groupId>
@@ -85,15 +92,9 @@
           <version>1.2</version>
       </dependency>
       <dependency>
-          <groupId>antlr</groupId>
-          <artifactId>antlr</artifactId>
-          <version>2.7.7</version>
-          <scope>test</scope>
-      </dependency>
-      <dependency>
           <groupId>org.springframework</groupId>
           <artifactId>spring-beans</artifactId>
-          <version>3.2.18.RELEASE</version>
+          <version>${spring.version}</version>
       </dependency>
       <dependency>
           <groupId>mysql</groupId>
