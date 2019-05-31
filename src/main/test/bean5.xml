@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="bean2" class="com.livejq.static_factory.StaticFactory" factory-method="createBean"/>
+	<!-- 使用构造方法装配user实例 -->
+	<bean id="user1" class="com.livejq.assemble.User">
+		<constructor-arg index="0" value="zhl" />
+		<constructor-arg index="1" value="123" />
+	</bean>
+	
+	<!-- 使用Set装配user实例 -->
+	<bean id="user2" class="com.livejq.assemble.User">
+		<property name="username" value="livejq" />
+		<property name="password" value="456" />
+	</bean>
+</beans>
