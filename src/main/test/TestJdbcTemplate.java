@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+
 public class TestJdbcTemplate {
     @Test
     public void testCreateTable() {
@@ -40,7 +42,7 @@ public class TestJdbcTemplate {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
         UserDao userDao = (UserDao) applicationContext.getBean("userDao");
         User user = new User();
-        user.setId(2);
+        user.setId(3);
         user.setUsername("livejq");
         user.setPassword("789");
         int flag = userDao.updateUser(user);
@@ -57,12 +59,40 @@ public class TestJdbcTemplate {
         String xmlPath = "jdbcTemplateBeans.xml";
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
         UserDao userDao = (UserDao) applicationContext.getBean("userDao");
-        int flag = userDao.deleteUserById(2);
+        int flag = userDao.deleteUserById(3);
         System.out.println("flag 返回值为 " + flag);
         if(flag == 1) {
             System.out.println("删除用户成功！");
         }else {
             System.out.println("未能删除用户~");
+        }
+    }
+
+    @Test
+    public void testFindUserById() {
+        String xmlPath = "jdbcTemplateBeans.xml";
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
+        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+        User u = userDao.findUserById(1);
+        if(u != null) {
+            System.out.println(u.toString());
+        }else {
+            System.out.println("未查到相关用户~");
+        }
+    }
+
+    @Test
+    public void testFindAllUser() {
+        String xmlPath = "jdbcTemplateBeans.xml";
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
+        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
+        List<User> uList = userDao.findAllUser();
+        if(uList.size() != 0) {
+            for(User u : uList) {
+                System.out.println(u.toString());
+            }
+        }else {
+            System.out.println("用户表为空");
         }
     }
 

@@ -1,6 +1,10 @@
 package com.livejq.jdbctemplate;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import java.util.List;
 
 public class UserDaoImpl implements UserDao {
 
@@ -46,6 +50,26 @@ public class UserDaoImpl implements UserDao {
         int flag = jdbcTemplate.update(sql, id);
 		return flag;
 	}
+
+    /**
+     * 与3.x 用法不同，3.x 使用 ParameteriedBeanPropertyRowMapper.newInstance(User.class) 来
+     * 返回一个 RowMapper<User> 对象
+     * @param id
+     * @return
+     */
+    @Override
+    public User findUserById(int id) {
+	    String sql = "select * from tb_user where id = ?";
+        RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
+        return jdbcTemplate.queryForObject(sql, rowMapper, id);
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        String sql = "select * from tb_user";
+        RowMapper<User> rowMapper = new BeanPropertyRowMapper<User>(User.class);
+        return jdbcTemplate.query(sql, rowMapper);
+    }
 
 
 }
