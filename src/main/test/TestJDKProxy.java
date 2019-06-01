@@ -2,7 +2,7 @@ import com.livejq.jdk_proxy.MyBeanFactory;
 import com.livejq.jdk_proxy.UserDao;
 import org.junit.Test;
 
-public class TestJDK {
+public class TestJDKProxy {
 
     @Test
     public void testMyAspect() {

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="userDao" class="com.livejq.spring_aop.UserDaoImpl"/>
+	<bean id="myAspect" class="com.livejq.spring_aop.MyAspect"/>
+    <!-- 生成代理对象 -->
+    <bean id="userDaoProxy"
+          class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- 代理实现的接口 -->
+        <property name="interfaces" value="com.livejq.spring_aop.UserDao"/>
+        <!-- 目标 -->
+        <property name="target" ref="userDao"/>
+        <!-- 用通知增强目标 -->
+        <property name="interceptorNames" value="myAspect"/>
+        <!-- 如何生成代理 true：使用cglib，false：使用jdk动态代理 -->
+        <property name="proxyTargetClass" value="true"/>
+    </bean>
+</beans>

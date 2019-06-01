@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 public class TestJdbcTemplate {
     @Test
     public void testCreateTable() {
-        String xmlPath = "JdbcTemplateBeans.xml";
+        String xmlPath = "jdbcTemplateBeans.xml";
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
         JdbcTemplate jdbcTemplate = (JdbcTemplate) applicationContext.getBean("jdbcTemplate");
         jdbcTemplate.execute("create table tb_user(" +
@@ -19,7 +19,7 @@ public class TestJdbcTemplate {
 
     @Test
     public void testAddUser() {
-        String xmlPath = "JdbcTemplateBeans.xml";
+        String xmlPath = "jdbcTemplateBeans.xml";
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
         UserDao userDao = (UserDao) applicationContext.getBean("userDao");
         User user = new User();
@@ -36,7 +36,7 @@ public class TestJdbcTemplate {
 
     @Test
     public void testUpdateUser() {
-        String xmlPath = "JdbcTemplateBeans.xml";
+        String xmlPath = "jdbcTemplateBeans.xml";
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
         UserDao userDao = (UserDao) applicationContext.getBean("userDao");
         User user = new User();
@@ -54,7 +54,7 @@ public class TestJdbcTemplate {
 
     @Test
     public void testDeleteUser() {
-        String xmlPath = "JdbcTemplateBeans.xml";
+        String xmlPath = "jdbcTemplateBeans.xml";
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(xmlPath);
         UserDao userDao = (UserDao) applicationContext.getBean("userDao");
         int flag = userDao.deleteUserById(2);
