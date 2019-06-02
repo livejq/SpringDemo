@@ -17,6 +17,10 @@ public class TestJdbcTemplate {
                 "id int primary key auto_increment," +
                 "username varchar(50)," +
                 "password varchar(32))");
+        /*jdbcTemplate.execute("create table tb_account(" +
+                "id int(11) primary key auto_increment," +
+                "name varchar(50) not null," +
+                "money int default null)");*/
     }
 
     @Test
